@@ -280,6 +280,7 @@ function history_log {
 
 eval "$(zoxide init zsh)"
 
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Created by `pipx` on 2023-07-18 11:06:17
 export PATH="$PATH:/opt:$HOME/.local/bin:$HOME/go/bin"
