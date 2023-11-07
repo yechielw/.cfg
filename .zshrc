@@ -251,6 +251,11 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 #if [ -f /etc/zsh_command_not_found ]; then
 #    . /etc/zsh_command_not_found
 #fi
+
+if [ ! -f /usr/share/zsh-antigen/antigen.zsh ]; then
+    curl -sL git.io/antigen > /usr/share/zsh-antigen/antigen.zsh
+    fi
+
 source /usr/share/zsh-antigen/antigen.zsh
 antigen bundle zsh-users/zsh-history-substring-search
 #antigen bundle jeffreytse/zsh-vi-mode
