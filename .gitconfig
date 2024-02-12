@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Yechiel Worenklein
+	email = 41305372+yechielw@users.noreply.github.com
+# Please adapt and uncomment the following lines:
+#	name = Yechiel WOrenklein
+#	email = 41305372+yechielw@users.noreply.github.com
+[init]
+	defaultBranch = main
+[alias]
+	dots = !git --git-dir=$HOME/.cfg/ --work-tree=$HOME
