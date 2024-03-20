@@ -11,19 +11,6 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 PROMPT_EOL_MARK=""
 
 # configure key keybindings
-bindkey -e                                        # emacs key bindings
-bindkey ' ' magic-space                           # do history expansion on space
-bindkey '^U' backward-kill-line                   # ctrl + U
-bindkey '^[[3;5~' kill-word                       # ctrl + Supr
-bindkey '^[[3~' delete-char                       # delete
-bindkey '^[[1;5C' forward-word                    # ctrl + ->
-bindkey '^[[1;5D' backward-word                   # ctrl + <-
-bindkey '^[[5~' beginning-of-buffer-or-history    # page up
-bindkey '^[[6~' end-of-buffer-or-history          # page down
-bindkey '^[[H' beginning-of-line                  # home
-bindkey '^[[F' end-of-line                        # end
-bindkey '^[[Z' undo                               # shift + tab undo last action
-
 # History configurations
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -89,12 +76,13 @@ fi
 
 
 # some more ls aliases
-type ls > /dev/null && alias ls=exa && alias ll='exa -la -g' 
+type exa  > /dev/null && alias ls=exa && alias ll='exa -la -g' 
 type nala > /dev/null && alias apt=nala
-type nvim > /dev/null && alias vi=/usr/bin/nvim 
+type nvim > /dev/null && alias vi=/usr/bin/nvim && EDITOR=nvim
 
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 
 [ ! -f $HOME/.config/antigen.zsh ] && curl -sL git.io/antigen -o $HOME/.config/antigen.zsh
@@ -108,6 +96,19 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle command-not-found
 antigen apply
+
+bindkey ' ' magic-space                           # do history expansion on space
+bindkey '^U' backward-kill-line                   # ctrl + U
+bindkey '^[[3;5~' kill-word                       # ctrl + Supr
+bindkey '^[[3~' delete-char                       # delete
+bindkey '^[[1;5C' forward-word                    # ctrl + ->
+bindkey '^[[1;5D' backward-word                   # ctrl + <-
+bindkey '^[[5~' beginning-of-buffer-or-history    # page up
+bindkey '^[[6~' end-of-buffer-or-history          # page down
+bindkey '^[[H' beginning-of-line                  # home
+bindkey '^[[F' end-of-line                        # end
+bindkey '^[[Z' undo                               # shift + tab undo last action
+
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -139,4 +140,8 @@ alias history="history 0"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cat=batcat 
 alias hosts="sudo.exe wsl nvim /mnt/c/Windows/System32/drivers/etc/hosts"
+
+export PATH="/opt:$HOME/.local/bin:$HOME/go/bin:$PATH"
+
+[ "$EUID" -eq 0 ] && prompt_symbol=💀
 
