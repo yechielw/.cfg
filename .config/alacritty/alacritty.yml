@@ -604,9 +604,9 @@ live_config_reload: true
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
 shell:
-  program: wsl
+  program: sh
   args:
-    - tmux a || tmux new-session -c ~
+    - tmux a || tmux new-session -c ~ || bash
 
 # Startup directory
 #
