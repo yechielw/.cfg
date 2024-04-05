@@ -1,5 +1,9 @@
 #setopt share_history         # share command history data
 
+
+ZSH_THEME_GIT_PROMPT_PREFIX=" "
+ZSH_THEME_GIT_PROMPT_SUFFIX=" "
+# source zshrc.sh
 # force zsh to show the complete history
 
 # configure `time` format
@@ -21,6 +25,6 @@ fi }
 
 
 
-PROMPT=$'%F{%(#.blue.green)}${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}[%B%F{reset}$([ -z $SSH_TTY ] || echo "$USER@$HOST ")%F{red}$(gs)%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+PROMPT=$'%F{%(#.blue.green)}${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}[%B%F{reset}$([ -z $SSH_TTY ] || echo "$USER@$HOST ")%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
 # Right-side prompt with exit codes and background processes
 RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'

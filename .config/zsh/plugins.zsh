@@ -8,4 +8,5 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle command-not-found
+antigen bundle olivierverdier/zsh-git-prompt
 antigen apply
